@@ -165,7 +165,6 @@ func (c *Client) getJSON(url string, v interface{}) error {
 	if err := c.logResponse(res, true); err != nil {
 		return err
 	}
-
 	if err := json.NewDecoder(res.Body).Decode(&v); err != nil {
 		return err
 	}

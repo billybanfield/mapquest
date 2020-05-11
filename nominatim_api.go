@@ -103,6 +103,10 @@ func (api *NominatimAPI) buildSearchURL(req *NominatimSearchRequest) (string, er
 		q.Set("osm_id", req.OSMId)
 	}
 
+	if api.c.key != "" {
+		q.Set("key", api.c.key)
+	}
+
 	// No key here!
 	u.RawQuery = q.Encode()
 	return u.String(), nil
